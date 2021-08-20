@@ -42,9 +42,27 @@ createColors(4);
 
 const colors = document.querySelectorAll('.color');
 
+// program show the sequence of colors
+
+let levels = [];
+const createLevels = (amount) => { 
+    for (i = 0; i < amount; i++) {
+        const randomColor = colors[Math.round(Math.random() * (colors.length - 1))].id;
+        levels[i] = randomColor;
+    }
+    console.log(levels)
+}
+
+createLevels(10);
+
+const repeat = [];
+// player click to repeat
 for (color of colors) {
     color.onclick = (ev) => {
         console.log(ev.currentTarget)
+        repeat.push(ev.currentTarget.id);
+        console.log(repeat)
         ev.currentTarget.style.opacity = 1;
     }
 }
+// push each color blocks into an array
