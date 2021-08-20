@@ -60,11 +60,11 @@ const showSequence = () => {
         const nowBlock = document.getElementById(sequence[i])
         setTimeout(() => {
             nowBlock.style.opacity = 1;
-        }, 3000 + (i*1000))
+        }, 3000 + (i*2000))
 
         setTimeout(() => {
             nowBlock.style.opacity = 0.4;
-        }, 4000 + (i*1000))
+        }, 4000 + (i*2000))
     }
     userRepeat();
 }
