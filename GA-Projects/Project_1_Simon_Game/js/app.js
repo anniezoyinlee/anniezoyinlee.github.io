@@ -18,15 +18,15 @@ div = document.createElement('div');
 div.setAttribute('class', 'colorblock');
 container.append(div);
 
+// creating color blocks
 const createColors = (amount) => {
     const colorblock = document.querySelector('.colorblock');
     for (i = 1; i <= amount; i++) {
-        console.log(i);
-        const color = document.createElement('div');
-        color.setAttribute('class', 'color');
-        color.style.backgroundColor = getRGB();
-        color.setAttribute('id', 'block_' + i)
-        colorblock.append(color);  
+        div = document.createElement('div');
+        div.setAttribute('class', 'color');
+        div.style.backgroundColor = getRGB();
+        div.setAttribute('id', 'block_' + i)
+        colorblock.append(div);  
     }
 }
 
@@ -39,3 +39,12 @@ const getRGB = () => {
 }
 
 createColors(4);
+
+const colors = document.querySelectorAll('.color');
+
+for (color of colors) {
+    color.onclick = (ev) => {
+        console.log(ev.currentTarget)
+        ev.currentTarget.style.opacity = 1;
+    }
+}
