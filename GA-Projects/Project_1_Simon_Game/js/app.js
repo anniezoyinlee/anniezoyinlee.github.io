@@ -44,25 +44,47 @@ const colors = document.querySelectorAll('.color');
 
 // program show the sequence of colors
 
-let levels = [];
-const createLevels = (amount) => { 
+let sequence = [];
+const createSequence = (amount) => { 
     for (i = 0; i < amount; i++) {
         const randomColor = colors[Math.round(Math.random() * (colors.length - 1))].id;
-        levels[i] = randomColor;
+        sequence[i] = randomColor;
     }
-    console.log(levels)
+    console.log(sequence)
+}   
+
+createSequence(10);
+
+const showSequence = () => {
+    for (i = 0; i < sequence.length; i++) {
+        const nowBlock = document.getElementById(sequence[i])
+        setTimeout(() => {
+            nowBlock.style.opacity = 1;
+        }, 3000 + (i*1000))
+
+        setTimeout(() => {
+            nowBlock.style.opacity = 0.4;
+        }, 4000 + (i*1000))
+    }
+    userRepeat();
 }
 
-createLevels(10);
-
-const repeat = [];
-// player click to repeat
-for (color of colors) {
-    color.onclick = (ev) => {
-        console.log(ev.currentTarget)
-        repeat.push(ev.currentTarget.id);
-        console.log(repeat)
-        ev.currentTarget.style.opacity = 1;
+const userRepeat = () => {
+    const repeat = [];
+    // user click to repeat
+    for (color of colors) {
+        color.onclick = (ev) => {
+            console.log(ev.currentTarget)
+            repeat.push(ev.currentTarget.id);
+            console.log(repeat)
+            ev.currentTarget.style.opacity = 1;
+        }
     }
 }
-// push each color blocks into an array
+
+const playLevel = () => {
+    showSequence();
+    
+}
+
+playLevel();
