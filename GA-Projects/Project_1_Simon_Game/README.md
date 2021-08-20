@@ -1,4 +1,4 @@
-# General Assembly Project 1
+# General Assembly - Project 1
 ## Project Choice
 >  Simon Game
 
@@ -32,3 +32,5 @@
 * As a player, I would like a pop-up screen to show which level I'm at before the level starts
 * As a player, I would like to hear different sounds while the app showing the sequence of different colors
 * As a player, I would like to see a rank with other players name and their highest level
+
+@benmanning @JohnAJacobs @Pwinchester 
