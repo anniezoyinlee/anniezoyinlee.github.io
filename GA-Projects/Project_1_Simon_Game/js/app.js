@@ -53,38 +53,43 @@ const createSequence = (amount) => {
     console.log(sequence)
 }   
 
-createSequence(10);
+createSequence(4);
 
 const showSequence = () => {
     for (i = 0; i < sequence.length; i++) {
         const nowBlock = document.getElementById(sequence[i])
+        nowBlock.style.pointerEvents = 'none';
         setTimeout(() => {
             nowBlock.style.opacity = 1;
-        }, 3000 + (i*2000))
+        }, 3000 + (i * 2000))
 
         setTimeout(() => {
             nowBlock.style.opacity = 0.4;
-        }, 4000 + (i*2000))
+        }, 4000 + (i * 2000))
+
+        setTimeout(() => {
+            nowBlock.style.pointerEvents = '';
+        }, 4000 + (sequence.length * 2000))
     }
-    userRepeat();
 }
 
 const userRepeat = () => {
     const repeat = [];
     // user click to repeat
-    for (color of colors) {
-        color.onclick = (ev) => {
+    for (i = 0; i < colors.length; i++) {
+        colors[i].onclick = (ev) => {
             console.log(ev.currentTarget)
             repeat.push(ev.currentTarget.id);
             console.log(repeat)
-            ev.currentTarget.style.opacity = 1;
+            // Use CSS animation?
+            ev.currentTarget.style.opacity = 1; 
         }
     }
 }
 
 const playLevel = () => {
     showSequence();
-    
+    userRepeat();
 }
 
 playLevel();
