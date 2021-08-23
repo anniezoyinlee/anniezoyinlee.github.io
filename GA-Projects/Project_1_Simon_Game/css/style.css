@@ -34,6 +34,15 @@
     border-radius: 5%;
 }
 
+.clicked {
+    height: 120px;
+    width: 120px;
+    margin: 1%;
+    border: solid rgb(255, 255, 255);
+    opacity: 1;
+    border-radius: 5%;
+}
+
 @media only screen and (max-width: 1024px) {
     .container {
         margin: 5% auto;
@@ -51,6 +60,11 @@
     }
 
     .color {
+        height: 100px;
+        width: 90%;
+    }
+
+    .clicked {
         height: 100px;
         width: 90%;
     }
@@ -76,6 +90,11 @@
         height: 80px;
         width: 50%;
     }
+
+    .clicked {
+        height: 80px;
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 420px) {
@@ -95,6 +114,11 @@
     }
 
     .color {
+        height: 100px;
+        width: 90%;
+    }
+
+    .clicked {
         height: 100px;
         width: 90%;
     }

@@ -1,22 +1,3 @@
-const container = document.querySelector('.container');
-
-let div = document.createElement('div');
-div.setAttribute('class', 'status');
-container.append(div);
-
-const status = document.querySelector('.status');
-const topLevelDiv = document.createElement('div');
-topLevelDiv.setAttribute('id', 'toplevel');
-topLevelDiv.innerText = 'Top Level: 10';
-
-const currentLevelDiv = document.createElement('div');
-currentLevelDiv.setAttribute('id', 'currentlevel');
-currentLevelDiv.innerText = 'Current Level: 10';
-status.append(topLevelDiv, currentLevelDiv);
-
-div = document.createElement('div');
-div.setAttribute('class', 'colorblock');
-container.append(div);
 
 // creating color blocks
 const createColors = (amount) => {
@@ -30,6 +11,7 @@ const createColors = (amount) => {
     }
 }
 
+// @Reference => w03d03/instructor_notes/palette_picker.md
 const getRGB = () => {
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
@@ -42,8 +24,7 @@ createColors(4);
 
 const colors = document.querySelectorAll('.color');
 
-// program show the sequence of colors
-
+// As a player, I want my game to show a sequence of different colors at random by changing the color blocks' opacity.
 let sequence = [];
 const createSequence = (amount) => { 
     for (i = 0; i < amount; i++) {
@@ -60,11 +41,11 @@ const showSequence = () => {
         const nowBlock = document.getElementById(sequence[i])
         nowBlock.style.pointerEvents = 'none';
         setTimeout(() => {
-            nowBlock.style.opacity = 1;
+            nowBlock.classList.toggle('clicked');
         }, 3000 + (i * 2000))
 
         setTimeout(() => {
-            nowBlock.style.opacity = 0.4;
+            nowBlock.classList.toggle('clicked');
         }, 4000 + (i * 2000))
 
         setTimeout(() => {
@@ -73,8 +54,10 @@ const showSequence = () => {
     }
 }
 
+// As a player, I want to repeat the sequence of different colors by clicking on the color block, and the color block would change opacity just like what the game showed me.
 const userRepeat = () => {
     const repeat = [];
+    const clicked = document.querySelectorAll('.clicked');
     // user click to repeat
     for (i = 0; i < colors.length; i++) {
         colors[i].onclick = (ev) => {
@@ -82,9 +65,19 @@ const userRepeat = () => {
             repeat.push(ev.currentTarget.id);
             console.log(repeat)
             // Use CSS animation?
-            ev.currentTarget.style.opacity = 1; 
+            ev.currentTarget.classList.toggle('clicked');
+            for (item of clicked) {
+                item.classList.remove('clicked')
+            };
         }
     }
+}
+
+// As a player, I want to click on a button to start the game.
+const start = document.getElementById('startbtn');
+start.onclick = (ev) => {
+    playLevel();
+    ev.currentTarget.remove();
 }
 
 const playLevel = () => {
@@ -92,4 +85,17 @@ const playLevel = () => {
     userRepeat();
 }
 
-playLevel();
+// MVP Goals
+// As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
+// As a player, I would like to know which level I'm at
+// As a player, I would like to know what is the highest level I ever at
+// As a player, I would like to see the color block turn grey if I miss the repeat.
+// As a player, I would like to see a message showing that I lose.
+// As a player, I would like to be able to restart the game after I lose.
+// As a player, I would like to know that I win the game if I complete level 10.
+
+// Stretch Goals
+// As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
+// As a player, I would like a pop-up screen to show which level I'm at before the level starts
+// As a player, I would like to hear different sounds while the app showing the sequence of different colors
+// As a player, I would like to see a rank with other players name and their highest level
