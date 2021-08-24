@@ -93,6 +93,7 @@ const playGame = (colorsAmount) => {
 
 const playLevel = (level) => {
     colorblock.classList.add('unclickable');
+    sequence = [];
     // As a player, I would like to know what is the highest level I ever at
     topLevel.innerText = 'Top Level: ' + best;
     // As a player, I would like to know which level I'm at
@@ -148,6 +149,7 @@ const restartGame = () => {
 
 // Issues:
 // [Violation] 'click' handler
+// app.js:66 Uncaught TypeError: Cannot read property 'classList' of null -> if clicking blocks too fast
 
 // New Goals
 // Add Target level for winning
