@@ -1,8 +1,19 @@
 let sequence = [];
 let colors = [];
 let level = 1;
+let best = 1;
+let clickAble = false;
 const start = document.getElementById('startbtn');
 const colorblock = document.querySelector('.colorblock');
+const topLevel = document.getElementById('toplevel');
+const currentLevel = document.getElementById('currentlevel');
+
+// doesn't work the way I want 
+if (clickAble === false) {
+    colorblock.style.setProperty('pointerEvents', 'none');
+} else {
+    colorblock.style.setProperty('pointerEvents', 'auto');
+}
 
 // creating color blocks
 const createColors = (amount) => {
@@ -39,16 +50,21 @@ const showSequence = () => {
         const block = sequence[i];
         setTimeout(() => {
             block.classList.toggle('clicked');
-        }, 1000 + (i * 2000))
+        }, 2000 + (i * 2000))
 
         setTimeout(() => {
             block.classList.toggle('clicked');
-        }, 2000 + (i * 2000))
+        }, 3000 + (i * 2000))
+
+        setTimeout(() => {
+            clickAble = true;
+            console.log(clickAble)
+        }, 2000 + (sequence.length * 2000))
     }
 }
 
 // As a player, I want to repeat the sequence of different colors by clicking on the color block, and the color block would change opacity just like what the game showed me.
-const userTurn = () => {
+const playerTurn = () => {
     for (i = 0; i < colors.length; i++) {
         colors[i].onclick = (ev) => {
             console.log(ev.currentTarget)
@@ -62,11 +78,14 @@ const userTurn = () => {
                 // As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
                 if (sequence.length === 0) {
                     level++;
+                    clickAble = false;
                     goNextLevel();
                 }
             } else {
+                // As a player, I would like to see the color block turn grey if I miss the repeat.
                 ev.currentTarget.style.backgroundColor = 'grey';
-                playerLost();
+                clickAble = false;
+                playerLose();
             }
         }
     }  
@@ -84,28 +103,58 @@ const playGame = (colorsAmount) => {
 }
 
 const playLevel = (level) => {
+    // As a player, I would like to know what is the highest level I ever at
+    topLevel.innerText = 'Top Level: ' + best;
+    // As a player, I would like to know which level I'm at
+    currentLevel.innerText = 'Current Level: ' + level;
     createSequence(level);
     showSequence();
-    userTurn();
+    playerTurn();
 }
 
 const goNextLevel = () => {
-    console.log('Good Job, Go to next Level!')
-    playLevel(level);
+    if (level <= 10) {
+        console.log('Good Job, Go to next Level!')
+        playLevel(level);
+    } else {
+        // As a player, I would like to know that I win the game if I complete level 10.
+        playerWin();
+    }
 }
 
-const playerLost = () => {
+const playerLose = () => {
+    // As a player, I would like to see a message showing that I lose.
     console.log('You missed it')
+    if (best <= level && level > 1) {
+        best = level - 1;
+    }
+    restartGame();
+}
+
+const playerWin = () => {
+    console.log('You win')
+    if (best <= level) {
+        best = level;
+    }
+    restartGame();
+}
+
+const restartGame = () => {
+    // As a player, I would like to be able to restart the game after I lose.
+    console.log('game restarted')
+    level = 1;
+    setTimeout(() => {
+        playLevel(level);
+    }, 5000)
+    
 }
 
 // MVP Goals
 
-// As a player, I would like to know which level I'm at
-// As a player, I would like to know what is the highest level I ever at
-// As a player, I would like to see the color block turn grey if I miss the repeat.
-// As a player, I would like to see a message showing that I lose.
-// As a player, I would like to be able to restart the game after I lose.
-// As a player, I would like to know that I win the game if I complete level 10.
+// Issues:
+// make blocks unclickable while showing sequence
+// make blocks unclickable for 1 second before click on the next block
+
 
 // Stretch Goals
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
