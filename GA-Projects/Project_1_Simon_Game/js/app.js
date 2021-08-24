@@ -50,16 +50,16 @@ const showSequence = () => {
         const block = sequence[i];
         setTimeout(() => {
             block.classList.toggle('clicked');
-        }, 2000 + (i * 2000))
+        }, 1000 + (i * 2000))
 
         setTimeout(() => {
             block.classList.toggle('clicked');
-        }, 3000 + (i * 2000))
+        }, 2000 + (i * 2000))
 
         setTimeout(() => {
             // doesn't work now
             clickAble = true;
-        }, 2000 + (sequence.length * 2000))
+        }, 1000 + (sequence.length * 2000))
     }
 }
 
@@ -76,9 +76,10 @@ const playerTurn = () => {
                 }, 500);
                 // As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
                 if (sequence.length === 0) {
-                    level++;
                     clickAble = false;
-                    goNextLevel();
+                    setTimeout(() => {
+                        goNextLevel();
+                    }, 600)
                 }
             } else {
                 // As a player, I would like to see the color block turn grey if I miss the repeat.
@@ -112,8 +113,9 @@ const playLevel = (level) => {
 }
 
 const goNextLevel = () => {
-    if (level <= 10) {
-        alert('Good Job, Go to next Level!')
+    if (level < 3) {
+        alert('You completed level ' + level + '. Go to next Level!')
+        level++;    
         playLevel(level);
     } else {
         // As a player, I would like to know that I win the game if I complete level 10.
@@ -147,7 +149,7 @@ const restartGame = () => {
     level = 1;
     setTimeout(() => {
         playLevel(level);
-    }, 5000)
+    }, 2000)
     
 }
 
@@ -155,7 +157,9 @@ const restartGame = () => {
 
 // Issues:
 // make blocks unclickable while showing sequence
-// make blocks unclickable for 1 second before click on the next block
+
+// [Violation] 'click' handler
+// Add Target level
 
 
 // Stretch Goals

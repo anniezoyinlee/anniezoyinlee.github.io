@@ -33,6 +33,10 @@
     border-radius: 5%;
 }
 
+.color:hover {
+    border: solid rgb(255, 255, 255);
+}
+
 .clicked {
     height: 120px;
     width: 120px;
