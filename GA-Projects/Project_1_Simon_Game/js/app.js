@@ -38,7 +38,6 @@ const createSequence = (amount) => {
 }   
 
 const showSequence = () => {
-    colorblock.classList.add('unclickable');
     for (i = 0; i < sequence.length; i++) {
         const block = sequence[i];
         setTimeout(() => {
@@ -50,7 +49,6 @@ const showSequence = () => {
         }, 2000 + (i * 2000))
 
         setTimeout(() => {
-            // doesn't work now
             colorblock.classList.remove('unclickable');
         }, 500 + (sequence.length * 2000))
     }
@@ -69,7 +67,6 @@ const playerTurn = () => {
                 }, 500);
                 // As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
                 if (sequence.length === 0) {
-                    clickAble = false;
                     setTimeout(() => {
                         goNextLevel();
                     }, 600)
@@ -77,7 +74,6 @@ const playerTurn = () => {
             } else {
                 // As a player, I would like to see the color block turn grey if I miss the repeat.
                 ev.currentTarget.style.backgroundColor = 'grey';
-                clickAble = false;
                 playerLose();
             }
         }
@@ -96,6 +92,7 @@ const playGame = (colorsAmount) => {
 }
 
 const playLevel = (level) => {
+    colorblock.classList.add('unclickable');
     // As a player, I would like to know what is the highest level I ever at
     topLevel.innerText = 'Top Level: ' + best;
     // As a player, I would like to know which level I'm at
@@ -135,6 +132,7 @@ const playerWin = () => {
 
 const restartGame = () => {
     // As a player, I would like to be able to restart the game after I lose.
+    colorblock.classList.add('unclickable');
     alert('game restarted')
     for (item of colors) {
         item.style.backgroundColor = getRGB();
@@ -154,6 +152,10 @@ const restartGame = () => {
 // New Goals
 // Add Target level for winning
 // Show 'Your turn' after showing sequence 
+// Next Level window
+// Win window
+// Lose window
+// restart prompt
 
 // Stretch Goals
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
