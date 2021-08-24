@@ -57,8 +57,8 @@ const showSequence = () => {
         }, 3000 + (i * 2000))
 
         setTimeout(() => {
+            // doesn't work now
             clickAble = true;
-            console.log(clickAble)
         }, 2000 + (sequence.length * 2000))
     }
 }
@@ -67,7 +67,6 @@ const showSequence = () => {
 const playerTurn = () => {
     for (i = 0; i < colors.length; i++) {
         colors[i].onclick = (ev) => {
-            console.log(ev.currentTarget)
             if (ev.currentTarget === sequence[0]) {
                 sequence.shift();
                 ev.currentTarget.classList.toggle('clicked');
@@ -114,7 +113,7 @@ const playLevel = (level) => {
 
 const goNextLevel = () => {
     if (level <= 10) {
-        console.log('Good Job, Go to next Level!')
+        alert('Good Job, Go to next Level!')
         playLevel(level);
     } else {
         // As a player, I would like to know that I win the game if I complete level 10.
@@ -124,7 +123,7 @@ const goNextLevel = () => {
 
 const playerLose = () => {
     // As a player, I would like to see a message showing that I lose.
-    console.log('You missed it')
+    alert('You missed it')
     if (best <= level && level > 1) {
         best = level - 1;
     }
@@ -132,7 +131,7 @@ const playerLose = () => {
 }
 
 const playerWin = () => {
-    console.log('You win')
+    alert('You win')
     if (best <= level) {
         best = level;
     }
@@ -141,7 +140,10 @@ const playerWin = () => {
 
 const restartGame = () => {
     // As a player, I would like to be able to restart the game after I lose.
-    console.log('game restarted')
+    alert('game restarted')
+    for (item of colors) {
+        item.style.backgroundColor = getRGB();
+    }
     level = 1;
     setTimeout(() => {
         playLevel(level);
