@@ -2,18 +2,10 @@ let sequence = [];
 let colors = [];
 let level = 1;
 let best = 1;
-let clickAble = false;
 const start = document.getElementById('startbtn');
 const colorblock = document.querySelector('.colorblock');
 const topLevel = document.getElementById('toplevel');
 const currentLevel = document.getElementById('currentlevel');
-
-// doesn't work the way I want 
-if (clickAble === false) {
-    colorblock.style.setProperty('pointerEvents', 'none');
-} else {
-    colorblock.style.setProperty('pointerEvents', 'auto');
-}
 
 // creating color blocks
 const createColors = (amount) => {
@@ -46,6 +38,7 @@ const createSequence = (amount) => {
 }   
 
 const showSequence = () => {
+    colorblock.classList.add('unclickable');
     for (i = 0; i < sequence.length; i++) {
         const block = sequence[i];
         setTimeout(() => {
@@ -58,8 +51,8 @@ const showSequence = () => {
 
         setTimeout(() => {
             // doesn't work now
-            clickAble = true;
-        }, 1000 + (sequence.length * 2000))
+            colorblock.classList.remove('unclickable');
+        }, 500 + (sequence.length * 2000))
     }
 }
 
@@ -156,11 +149,11 @@ const restartGame = () => {
 // MVP Goals
 
 // Issues:
-// make blocks unclickable while showing sequence
-
 // [Violation] 'click' handler
-// Add Target level
 
+// New Goals
+// Add Target level for winning
+// Show 'Your turn' after showing sequence 
 
 // Stretch Goals
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)

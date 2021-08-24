@@ -46,6 +46,10 @@
     border-radius: 5%;
 }
 
+.unclickable {
+    pointer-Events: none;
+}
+
 @media only screen and (max-width: 1024px) {
     .container {
         margin: 5% auto;
