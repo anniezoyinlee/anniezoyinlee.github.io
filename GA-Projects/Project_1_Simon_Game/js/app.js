@@ -9,147 +9,155 @@ const currentLevel = document.getElementById('currentlevel');
 
 // creating color blocks
 const createColors = (amount) => {
-    for (i = 1; i <= amount; i++) {
-        div = document.createElement('div');
-        div.setAttribute('class', 'color');
-        div.style.backgroundColor = getRGB();
-        div.setAttribute('id', 'block_' + i)
-        colorblock.append(div);  
-        colors.push(div);
-    }
+	for (i = 1; i <= amount; i++) {
+		div = document.createElement('div');
+		div.setAttribute('class', 'color');
+		div.style.backgroundColor = getRGB();
+		colorblock.append(div);  
+		colors.push(div);
+	}
 }
 
 // @Reference => w03d03/instructor_notes/palette_picker.md
 const getRGB = () => {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
+	const red = Math.floor(Math.random() * 256);
+	const green = Math.floor(Math.random() * 256);
+	const blue = Math.floor(Math.random() * 256);
 
-    return `rgb(${red},${green},${blue})`;
+	return `rgb(${red}, ${green}, ${blue})`;
 }
 
 // As a player, I want my game to show a sequence of different colors at random by changing the color blocks' opacity.
 const createSequence = (amount) => { 
-    for (i = 0; i < amount; i++) {
-        const randomColor = colors[Math.round(Math.random() * (colors.length - 1))];
-        sequence[i] = randomColor;
-    }
-    console.log(sequence)
+	for (i = 0; i < amount; i++) {
+		const randomColor = colors[Math.round(Math.random() * (colors.length - 1))];
+		sequence[i] = randomColor;
+	}
+	console.log(sequence);
 }   
 
 const showSequence = () => {
-    for (i = 0; i < sequence.length; i++) {
-        const block = sequence[i];
-        setTimeout(() => {
-            block.classList.toggle('clicked');
-        }, 1000 + (i * 2000))
+	for (i = 0; i < sequence.length; i++) {
+		const block = sequence[i];
+		// color block opacity changes to 1
+		setTimeout(() => {
+				block.classList.toggle('clicked');
+		}, 1000 + (i * 2000));
+		// color block opacity changes back to 0.4
+		setTimeout(() => {
+				block.classList.toggle('clicked');
+		}, 2000 + (i * 2000));
 
-        setTimeout(() => {
-            block.classList.toggle('clicked');
-        }, 2000 + (i * 2000))
-
-        setTimeout(() => {
-            colorblock.classList.remove('unclickable');
-        }, 500 + (sequence.length * 2000))
-    }
+		setTimeout(() => {
+				colorblock.classList.remove('unclickable');
+		}, 500 + (sequence.length * 2000));
+	}
 }
 
 // As a player, I want to repeat the sequence of different colors by clicking on the color block, and the color block would change opacity just like what the game showed me.
 const playerTurn = () => {
-    for (i = 0; i < colors.length; i++) {
-        colors[i].onclick = (ev) => {
-            if (ev.currentTarget === sequence[0]) {
-                sequence.shift();
-                ev.currentTarget.classList.toggle('clicked');
-                setTimeout(() => {
-                    const playerClicked = document.querySelector('.clicked');
-                    playerClicked.classList.toggle('clicked');
-                }, 500);
-                // As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
-                if (sequence.length === 0) {
-                    setTimeout(() => {
-                        goNextLevel();
-                    }, 600)
-                }
-            } else {
-                // As a player, I would like to see the color block turn grey if I miss the repeat.
-                ev.currentTarget.style.backgroundColor = 'grey';
-                playerLose();
-            }
-        }
-    }  
+	for (i = 0; i < colors.length; i++) {
+		colors[i].onclick = (ev) => {
+			if (ev.currentTarget === sequence[0]) {
+				sequence.shift();
+				ev.currentTarget.classList.toggle('clicked');
+				const playerClicked = document.querySelector('.clicked');
+				colorblock.classList.add('unclickable');
+				setTimeout(() => {
+					console.log(playerClicked);
+					playerClicked.classList.toggle('clicked');
+				}, 500);
+				setTimeout(() => {
+					colorblock.classList.remove('unclickable');
+				}, 505);
+
+				// As a player, I want my game to show the next sequence of different colors after I repeat the sequence of colors.
+				if (sequence.length === 0) {
+					setTimeout(() => {
+						goNextLevel();
+					}, 600);
+				}
+			} else {
+					// As a player, I would like to see the color block turn grey if I miss the repeat.
+					ev.currentTarget.style.backgroundColor = 'grey';
+					playerLose();
+			}
+		}
+	}  
 }
 
 // As a player, I want to click on a button to start the game.
 start.onclick = (ev) => {
-    playGame(4);
-    ev.currentTarget.remove();
+	playGame(4);
+	ev.currentTarget.remove();
 }
 
 const playGame = (colorsAmount) => {
-    createColors(colorsAmount);
-    playLevel(level);
+	createColors(colorsAmount);
+	playLevel(level);
 }
 
 const playLevel = (level) => {
-    colorblock.classList.add('unclickable');
-    sequence = [];
-    // As a player, I would like to know what is the highest level I ever at
-    topLevel.innerText = 'Top Level: ' + best;
-    // As a player, I would like to know which level I'm at
-    currentLevel.innerText = 'Current Level: ' + level;
-    createSequence(level);
-    showSequence();
-    playerTurn();
+	colorblock.classList.add('unclickable');
+	sequence = [];
+	// As a player, I would like to know what is the highest level I ever at
+	topLevel.innerText = 'Top Level: ' + best;
+	// As a player, I would like to know which level I'm at
+	currentLevel.innerText = 'Current Level: ' + level;
+	createSequence(level);
+	showSequence();
+	playerTurn();
 }
 
 const goNextLevel = () => {
-    if (level < 3) {
-        alert('You completed level ' + level + '. Go to next Level!')
-        level++;    
-        playLevel(level);
-    } else {
-        // As a player, I would like to know that I win the game if I complete level 10.
-        playerWin();
-    }
+	if (level < 3) {
+		alert('You completed level ' + level + '. Go to next Level!');
+		level++;    
+		playLevel(level);
+	} else {
+		// As a player, I would like to know that I win the game if I complete level 10.
+		playerWin();
+	}
 }
 
 const playerLose = () => {
-    // As a player, I would like to see a message showing that I lose.
-    alert('You missed it')
-    if (best <= level && level > 1) {
-        best = level - 1;
-    }
-    restartGame();
+	// As a player, I would like to see a message showing that I lose.
+	alert('You missed it');
+	if (best <= level && level > 1) {
+			best = level - 1;
+	}
+	restartGame();
 }
 
 const playerWin = () => {
-    alert('You win')
-    if (best <= level) {
-        best = level;
-    }
-    restartGame();
+	alert('You win');
+	if (best <= level) {
+			best = level;
+	}
+	restartGame();
 }
 
+// As a player, I would like to be able to restart the game after I lose.
 const restartGame = () => {
-    // As a player, I would like to be able to restart the game after I lose.
-    colorblock.classList.add('unclickable');
-    alert('game restarted')
-    for (item of colors) {
-        item.style.backgroundColor = getRGB();
-    }
-    level = 1;
-    setTimeout(() => {
-        playLevel(level);
-    }, 2000)
-    
+	colorblock.classList.add('unclickable');
+
+	const restart = prompt('Do you want to restart the game?', 'yes/no');
+	if (restart === 'yes') {
+		for (item of colors) {
+			item.style.backgroundColor = getRGB();
+		}
+		level = 1;
+		setTimeout(() => {
+				playLevel(level);
+		}, 2000);
+	}
 }
 
 // MVP Goals
 
 // Issues:
 // [Violation] 'click' handler
-// app.js:66 Uncaught TypeError: Cannot read property 'classList' of null -> if clicking blocks too fast
+
 
 // New Goals
 // Add Target level for winning
