@@ -18,7 +18,7 @@
 /* children: .start .difficulity .status and .colorblock */
 .main {
     margin: auto;
-    height: 500px;
+    min-height: 300px;
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -138,100 +138,28 @@ button#easy:hover {
 }
 
 .restart button {
-    display: none;
-    margin: 15% auto;
-    padding: 2% 15%;
-    border-radius: 40px;
-    background-color: rgb(137, 222, 255);
+    margin: 5% auto;
+    padding: 10% 10%;
+    border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 4vw;
     letter-spacing: 0.2em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    display: none;
+    background-color: rgb(137, 222, 255);
 }
 
 .restart button:hover {
     border: green 4px dotted;
 }
 
-/* 
-@media only screen and (max-width: 1024px) {
-    .container {
-        margin: 5% auto;
-        width: 90%;
-        height: 600px;
-    }
-
-    .status {
-        width: 50%;
-        font-size: .8em;
-    }
-    
-    .colorblock {
-        width: 60%;
-    }
-
-    .color {
-        height: 100px;
-        width: 90%;
-    }
-
-    .clicked {
-        height: 100px;
-        width: 90%;
-    }
-}
-
 @media only screen and (max-width: 768px) {
     .container {
-        margin: 0 auto;
+        flex-flow: column wrap;
+    }
+
+    .main {
         width: 90%;
-        height: 540px;
-    }
-
-    .status {
-        width: 40%;
-        font-size: 1em;
-    }
-    
-    .colorblock {
-        width: 90%;
-    }
-
-    .color {
-        height: 80px;
-        width: 50%;
-    }
-
-    .clicked {
-        height: 80px;
-        width: 50%;
     }
 }
-
-@media only screen and (max-width: 420px) {
-    .container {
-        margin: 0 auto;
-        width: 90%;
-        height: 500px;
-    }
-
-    .status {
-        width: 90%;
-        font-size: .8em;
-    }
-    
-    .colorblock {
-        width: 90%;
-    }
-
-    .color {
-        height: 100px;
-        width: 90%;
-    }
-
-    .clicked {
-        height: 100px;
-        width: 90%;
-    }
-} */

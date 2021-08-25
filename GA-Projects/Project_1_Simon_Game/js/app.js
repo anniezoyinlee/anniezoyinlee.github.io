@@ -1,5 +1,5 @@
-let sequence = [];
 let colors = [];
+let sequence = [];
 let level = 1;
 let best = 1;
 const sidebar = document.querySelector('.sidebar');
