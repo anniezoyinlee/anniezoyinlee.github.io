@@ -2,7 +2,7 @@ let sequence = [];
 let colors = [];
 let level = 1;
 let best = 1;
-const start = document.getElementById('startbtn');
+const start = document.getElementById('startBtn');
 const colorblock = document.querySelector('.colorblock');
 const topLevel = document.getElementById('toplevel');
 const currentLevel = document.getElementById('currentlevel');
@@ -89,7 +89,10 @@ const playerTurn = () => {
 // As a player, I want to click on a button to start the game.
 start.onclick = (ev) => {
 	playGame(4);
-	ev.currentTarget.remove();
+	console.log(ev.currentTarget)
+	ev.currentTarget.innerText = 'Restart';
+	ev.currentTarget.classList = 'restart';
+	ev.currentTarget.setAttribute('id', 'restartbtn')
 }
 
 const playGame = (colorsAmount) => {
