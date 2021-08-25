@@ -100,7 +100,7 @@
 }
 
 .start button:hover {
-    border: white 2px solid;
+    border: pink 4px dotted;
 }
 
 .restart button {
@@ -114,6 +114,10 @@
     letter-spacing: 0.2em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.restart button:hover {
+    border: green 4px dotted;
 }
 
 /* 
