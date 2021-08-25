@@ -11,10 +11,10 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-/* children: .start .difficulity .levelDisplay and .colorblock */
+/* children: .start .difficulity .status and .colorblock */
 .main {
     margin: auto;
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -28,23 +28,12 @@
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
-.levelDisplay {
-    display: none;
-    width: 75%;
-    margin: auto;
-    padding: 1%;
-    font-size: 3vw;
-    letter-spacing: 0.2em;
-    color: white;
-    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
-}
-
 .start button {
     display: block;
     margin: 5% auto;
     padding: 4% 10%;
     border-radius: 40px;
-    background-color: yellow;
+    background-color: rgb(255, 255, 100);
     font-family: 'Bebas Neue', cursive;
     font-size: 4vw;
     letter-spacing: 0.2em;
@@ -77,7 +66,7 @@
 }
 
 button#easy {
-    background-color: skyblue;
+    background-color: rgb(180, 220, 220);
 }
 
 button#easy:hover {
@@ -85,11 +74,22 @@ button#easy:hover {
 }
 
 button#hard {
-    background-color: plum;
+    background-color: rgb(220, 180, 220);
 }
 
 button#hard:hover {
     border: dashed 3px rgb(255, 255, 255);
+}
+
+.levelDisplay {
+    display: none;
+    width: 75%;
+    margin: auto;
+    padding: 1%;
+    font-size: 3vw;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
 /* children: .color */
@@ -138,19 +138,21 @@ button#hard:hover {
     pointer-Events: none;
 }
 
-/* children: .status .restart */
+/* children: .levelDisplay .restart */
 .sidebar {
-    width: 30%;
+    border: gold 1px solid;
+    width: 35%;
+    margin: auto;
     display: none;
     flex-direction: column;
 }
 
 .status {
-    width: 75%;
-    margin: auto;
+    width: 100%;
+    margin-left: 5%;
     padding: 1%;
     font-size: 1.8vw;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
@@ -190,7 +192,7 @@ button#hard:hover {
     }
 
     .levelDisplay {
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
 }
 
@@ -204,7 +206,29 @@ button#hard:hover {
         width: 90%;
     }
 
+    .title {
+        font-size: 6vw;
+        margin-left: 10%;
+    }
+
     .sidebar {
         flex-direction: row;
+        align-items: center;
+        width: 80%;
+    }
+
+    .status {
+        width: 50%;
+        font-size: 2.5vw;
+    }
+
+    .restart { 
+        width: 50%;
+    }
+
+    .restart button {
+        margin: 5% auto;
+        padding: 5% 10%;
+        font-size: 3vw;
     }
 }

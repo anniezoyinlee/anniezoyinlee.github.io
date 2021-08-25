@@ -144,11 +144,11 @@ const playLevel = () => {
 	colorblock.classList.add('unclickable');
 	sequence = [];
   // Shows the target level for player to win
-	targetLevel.innerText = 'Target Level: ' + target;
+	targetLevel.innerText = 'Finish Level ' + target + ' to win!';
 	// As a player, I would like to know what is the highest level I ever at
 	bestLevel.innerText = 'Best Record: Level' + best;
 	// As a player, I would like to know which level I'm at
-	currentLevel.innerText = 'Level ' + level;
+	currentLevel.innerText = 'Current Level: ' + level;
 	createSequence(level);
 	showSequence();
 	playerTurn();
