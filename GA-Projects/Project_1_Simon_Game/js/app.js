@@ -18,7 +18,7 @@ const createColors = (amount) => {
 	}
 }
 
-// @Reference => w03d03/instructor_notes/palette_picker.md
+// Reference: getRGB w03d03/instructor_notes/palette_picker.md
 const getRGB = () => {
 	const red = Math.floor(Math.random() * 256);
 	const green = Math.floor(Math.random() * 256);
@@ -157,7 +157,7 @@ const restartGame = () => {
 
 // Issues:
 // [Violation] 'click' handler
-
+// Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
 
 // New Goals
 // Add Target level for winning

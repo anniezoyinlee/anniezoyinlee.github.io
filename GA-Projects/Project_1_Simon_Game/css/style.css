@@ -1,36 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
     border: solid 1px gold;
 }
 
 .container {
-    background-color: rgba(255, 192, 203, 0.6);
-    /* width: 40%;
+    /* background-color: rgba(255, 192, 203, 0.6); */
     margin: 5% auto;
-    padding: 10px; */
+    min-height: 400px;
+    padding: 10px; 
+    font-family: 'Bebas Neue', cursive;
 }
 
 .status {
-    /* width: 60%;
-    margin: 2% auto; */
+    width: 50%;
+    margin: 2% auto;
     font-size: 1.2em;
-    /* padding: 1%; */
+    padding: 1%;
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
 .colorblock {
-    /* max-width: 70%;
-    margin: 0 auto; */
+    max-width: 60%;
+    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
 .color {
-    height: 100px;
-    width: 100px;
-    /* margin: 1%; */
+    width: 45%;
+    margin: 1%;
     border: dashed rgb(255, 255, 255);
     opacity: .4;
     border-radius: 5%;
+}
+
+/* Reference: How to Create a Responsive Square with CSS https://spin.atomicobject.com/2015/07/14/css-responsive-square/ */
+.color:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
 .color:hover {
@@ -38,16 +51,36 @@
 }
 
 .clicked {
-    height: 100px;
-    width: 100px;
-    /* margin: 1%; */
+    width: 45%;
+    margin: 1%;
     border: solid rgb(255, 255, 255);
     opacity: 1;
     border-radius: 5%;
 }
 
+.clicked:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
 .unclickable {
     pointer-Events: none;
+}
+
+.start button {
+    padding: 1% 5%;
+    border-radius: 40px;
+    background-color: yellow;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
+}
+
+.start button:hover {
+    border: white 2px solid;
 }
 
 /* 
