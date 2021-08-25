@@ -5,6 +5,8 @@ let best = 1;
 let targetLevel;
 const sidebar = document.querySelector('.sidebar');
 const difficulity = document.querySelector('.difficulity');
+const title = document.querySelector('.title');
+const status = document.querySelector('.status');
 const hard = document.getElementById('hard');
 const easy = document.getElementById('easy');
 const start = document.getElementById('startBtn');
@@ -14,6 +16,7 @@ const topLevel = document.getElementById('toplevel');
 const currentLevel = document.getElementById('currentlevel');
 
 // creating color blocks
+// amount -> number
 const createColors = (amount) => {
 	for (i = 1; i <= amount; i++) {
 		div = document.createElement('div');
@@ -25,7 +28,6 @@ const createColors = (amount) => {
 		}
 		colorblock.append(div);  
 		colors.push(div);
-		
 	}
 }
 
@@ -39,21 +41,22 @@ const getRGB = () => {
 }
 
 // As a player, I want my game to show a sequence of different colors at random by changing the color blocks' opacity.
-const createSequence = (amount) => { 
-	for (i = 0; i < amount; i++) {
+// level -> number
+const createSequence = (level) => { 
+	for (i = 0; i < level; i++) {
 		const randomColor = colors[Math.round(Math.random() * (colors.length - 1))];
 		sequence[i] = randomColor;
 	}
-	console.log(sequence);
 }   
 
 const showSequence = () => {
+	colorblock.style.border = 'red 2px dashed';
 	for (i = 0; i < sequence.length; i++) {
 		const block = sequence[i];
 		// color block opacity changes to 1
 		setTimeout(() => {
 				block.classList.toggle('clicked');
-		}, 1000 + (i * 2000));
+		}, 1500 + (i * 2000));
 		// color block opacity changes back to 0.4
 		setTimeout(() => {
 				block.classList.toggle('clicked');
@@ -61,6 +64,7 @@ const showSequence = () => {
 
 		setTimeout(() => {
 				colorblock.classList.remove('unclickable');
+				colorblock.style.border = 'gold 2px dashed';
 		}, 500 + (sequence.length * 2000));
 	}
 }
@@ -75,7 +79,6 @@ const playerTurn = () => {
 				const playerClicked = document.querySelector('.clicked');
 				colorblock.classList.add('unclickable');
 				setTimeout(() => {
-					console.log(playerClicked);
 					playerClicked.classList.toggle('clicked');
 				}, 500);
 				setTimeout(() => {
@@ -104,6 +107,18 @@ start.onclick = (ev) => {
 }
 
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
+easy.onclick = (ev) => {
+	playGame(4);
+	targetLevel = 5;
+
+	// remove difficulity buttons
+	ev.currentTarget.remove();
+	difficulity.style.display = 'none';
+
+	// create a restart button
+	restart.style.display = 'block';
+}
+
 hard.onclick = (ev) => {
 	playGame(9);
 	targetLevel = 10;
@@ -116,19 +131,9 @@ hard.onclick = (ev) => {
 	restart.style.display = 'block';
 }
 
-easy.onclick = (ev) => {
-	playGame(4);
-	targetLevel = 5;
-	
-	// remove difficulity buttons
-	ev.currentTarget.remove();
-	difficulity.style.display = 'none';
-
-	// create a restart button
-	restart.style.display = 'block';
-}
-
 const playGame = (colorsAmount) => {
+	title.remove();
+	status.style.display = 'block';
 	createColors(colorsAmount);
 	playLevel(level);
 }
@@ -199,15 +204,8 @@ const restartGame = () => {
 // [Violation] 'click' handler
 // Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
 
-// New Goals
-// Add Target level for winning
-// Show 'Your turn' after showing sequence 
-// Win window
-// Lose window
-// restart prompt
 
 // Stretch Goals
-
 // As a player, I would like a pop-up screen to show which level I'm at before the level starts
 // As a player, I would like to hear different sounds while the app showing the sequence of different colors
 // As a player, I would like to see a rank with other players name and their highest level

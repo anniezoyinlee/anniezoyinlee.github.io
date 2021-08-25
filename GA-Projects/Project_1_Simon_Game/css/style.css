@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-* {
-    border: solid 1px gold;
-}
-
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -23,7 +19,16 @@
     justify-content: flex-start;
 }
 
+.title {
+    letter-spacing: 0.5em;
+    font-size: 4vw;
+    margin: auto;
+    color: white;
+    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
+}
+
 .status {
+    display: none;
     width: 90%;
     margin: 2% auto;
     padding: 1%;
@@ -33,15 +38,34 @@
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
+.start button {
+    display: block;
+    margin: 15% auto;
+    padding: 2% 5%;
+    border-radius: 40px;
+    background-color: yellow;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4vw;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.start button:hover {
+    border: pink 4px dotted;
+}
+
 .difficulity {
     width: 100%;
     margin: 0 auto;
     display: none;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .difficulity button {
-    margin: 5% auto;
+    margin: 10% 5%;
     padding: 10% 10%;
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
@@ -51,19 +75,19 @@
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
-button#hard {
-    background-color: plum;
-}
-
-button#hard:hover {
-    border: dashed 3px rgb(255, 255, 255);
-}
-
 button#easy {
     background-color: skyblue;
 }
 
 button#easy:hover {
+    border: dashed 3px rgb(255, 255, 255);
+}
+
+button#hard {
+    background-color: plum;
+}
+
+button#hard:hover {
     border: dashed 3px rgb(255, 255, 255);
 }
 
@@ -118,23 +142,6 @@ button#easy:hover {
     width: 30%;
 }
 
-.start button {
-    display: block;
-    margin: 15% auto;
-    padding: 2% 15%;
-    border-radius: 40px;
-    background-color: yellow;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 4vw;
-    letter-spacing: 0.2em;
-    color: white;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-.start button:hover {
-    border: pink 4px dotted;
-}
-
 .restart button {
     margin: 5% auto;
     padding: 10% 10%;
@@ -158,6 +165,6 @@ button#easy:hover {
     }
 
     .main {
-        width: 90%;
+        width: 80%;
     }
 }
