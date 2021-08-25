@@ -2,7 +2,9 @@ let sequence = [];
 let colors = [];
 let level = 1;
 let best = 1;
+const sidebar = document.querySelector('.sidebar');
 const start = document.getElementById('startBtn');
+const restart = document.getElementById('restartBtn');
 const colorblock = document.querySelector('.colorblock');
 const topLevel = document.getElementById('toplevel');
 const currentLevel = document.getElementById('currentlevel');
@@ -89,10 +91,10 @@ const playerTurn = () => {
 // As a player, I want to click on a button to start the game.
 start.onclick = (ev) => {
 	playGame(4);
-	console.log(ev.currentTarget)
-	ev.currentTarget.innerText = 'Restart';
-	ev.currentTarget.classList = 'restart';
-	ev.currentTarget.setAttribute('id', 'restartbtn')
+	ev.currentTarget.remove();
+
+	// create a restart button
+	restart.style.display = 'block';
 }
 
 const playGame = (colorsAmount) => {
@@ -137,6 +139,10 @@ const playerWin = () => {
 	if (best <= level) {
 			best = level;
 	}
+	restartGame();
+}
+
+restart.onclick = () => {
 	restartGame();
 }
 
