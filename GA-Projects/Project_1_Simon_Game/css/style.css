@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .container {
+    width: 60%;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -29,10 +30,10 @@
 
 .status {
     display: none;
-    width: 90%;
-    margin: 2% auto;
+    width: 75%;
+    margin: auto;
     padding: 1%;
-    font-size: 5vw;
+    font-size: 3vw;
     letter-spacing: 0.2em;
     color: white;
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
@@ -40,8 +41,8 @@
 
 .start button {
     display: block;
-    margin: 15% auto;
-    padding: 2% 5%;
+    margin: 5% auto;
+    padding: 4% 10%;
     border-radius: 40px;
     background-color: yellow;
     font-family: 'Bebas Neue', cursive;
@@ -65,8 +66,8 @@
 }
 
 .difficulity button {
-    margin: 10% 5%;
-    padding: 10% 10%;
+    margin: 5%;
+    padding: 5% 10%;
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 4vw;
@@ -93,7 +94,7 @@ button#hard:hover {
 
 /* children: .color */
 .colorblock {
-    width: 100%;
+    width: 85%;
     margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
@@ -159,12 +160,35 @@ button#hard:hover {
     border: green 4px dotted;
 }
 
+@media only screen and (max-width: 1550px) {
+    .container {
+        width: 70%
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .container {
+        width: 80%
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .container {
+        width: 90%
+    }
+
+    .status {
+        font-size: 4vw;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .container {
         flex-flow: column wrap;
+        width: 100%;
     }
 
     .main {
-        width: 80%;
+        width: 90%;
     }
 }
