@@ -3,6 +3,9 @@ let colors = [];
 let level = 1;
 let best = 1;
 const sidebar = document.querySelector('.sidebar');
+const difficulity = document.querySelector('.difficulity');
+const hard = document.getElementById('hard');
+const easy = document.getElementById('easy');
 const start = document.getElementById('startBtn');
 const restart = document.getElementById('restartBtn');
 const colorblock = document.querySelector('.colorblock');
@@ -15,8 +18,13 @@ const createColors = (amount) => {
 		div = document.createElement('div');
 		div.setAttribute('class', 'color');
 		div.style.backgroundColor = getRGB();
+		// for difficulity -> hard
+		if (amount >= 9) {
+			div.style.width = '27%';
+		}
 		colorblock.append(div);  
 		colors.push(div);
+		
 	}
 }
 
@@ -90,9 +98,23 @@ const playerTurn = () => {
 
 // As a player, I want to click on a button to start the game.
 start.onclick = (ev) => {
+	ev.currentTarget.remove();
+	difficulity.style.display = 'flex';
+}
+
+// As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
+hard.onclick = (ev) => {
+	playGame(9);
+	ev.currentTarget.remove();
+	difficulity.style.display = 'none';
+	// create a restart button
+	restart.style.display = 'block';
+}
+
+easy.onclick = (ev) => {
 	playGame(4);
 	ev.currentTarget.remove();
-
+	difficulity.style.display = 'none';
 	// create a restart button
 	restart.style.display = 'block';
 }
@@ -171,13 +193,12 @@ const restartGame = () => {
 // New Goals
 // Add Target level for winning
 // Show 'Your turn' after showing sequence 
-// Next Level window
 // Win window
 // Lose window
 // restart prompt
 
 // Stretch Goals
-// As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
+
 // As a player, I would like a pop-up screen to show which level I'm at before the level starts
 // As a player, I would like to hear different sounds while the app showing the sequence of different colors
 // As a player, I would like to see a rank with other players name and their highest level

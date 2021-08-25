@@ -15,7 +15,7 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-/* children: .status and .colorblock */
+/* children: .start .difficulity .status and .colorblock */
 .main {
     margin: auto;
     height: 500px;
@@ -35,6 +35,40 @@
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
+.difficulity {
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    flex-direction: column;
+}
+
+.difficulity button {
+    margin: 5% auto;
+    padding: 10% 10%;
+    border-radius: 20px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4vw;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+button#hard {
+    background-color: plum;
+}
+
+button#hard:hover {
+    border: dashed 3px rgb(255, 255, 255);
+}
+
+button#easy {
+    background-color: skyblue;
+}
+
+button#easy:hover {
+    border: dashed 3px rgb(255, 255, 255);
+}
+
 /* children: .color */
 .colorblock {
     width: 100%;
@@ -47,7 +81,7 @@
 .color {
     width: 45%;
     margin: 1%;
-    border: dashed rgb(255, 255, 255);
+    border: dashed 3px rgb(255, 255, 255);
     opacity: .4;
     border-radius: 5%;
 }
@@ -81,7 +115,7 @@
     pointer-Events: none;
 }
 
-/* children: .start .newColor .restart */
+/* children: .restart */
 .sidebar {
     width: 30%;
 }
