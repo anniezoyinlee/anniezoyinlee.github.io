@@ -2,17 +2,19 @@ let colors = [];
 let sequence = [];
 let level = 1;
 let best = 1;
-let targetLevel;
+let target;
 const sidebar = document.querySelector('.sidebar');
 const difficulity = document.querySelector('.difficulity');
 const title = document.querySelector('.title');
-const status = document.querySelector('.status');
+const levelDisplay = document.querySelector('.levelDisplay');
+const status = document.querySelector('.status')
 const hard = document.getElementById('hard');
 const easy = document.getElementById('easy');
 const start = document.getElementById('startBtn');
 const restart = document.getElementById('restartBtn');
 const colorblock = document.querySelector('.colorblock');
-const topLevel = document.getElementById('toplevel');
+const targetLevel = document.getElementById('targetLevel');
+const bestLevel = document.getElementById('bestLevel');
 const currentLevel = document.getElementById('currentlevel');
 
 // creating color blocks
@@ -108,53 +110,55 @@ start.onclick = (ev) => {
 
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
 easy.onclick = (ev) => {
+	target = 5;
 	playGame(4);
-	targetLevel = 5;
 
 	// remove difficulity buttons
 	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
 
-	// create a restart button
-	restart.style.display = 'block';
+	// show status and restart button
+	sidebar.style.display = 'flex';
 }
 
 hard.onclick = (ev) => {
+	target = 10;
 	playGame(9);
-	targetLevel = 10;
 
 	// remove difficulity buttons
 	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
 
-	// create a restart button
-	restart.style.display = 'block';
+	// show status and restart button
+	sidebar.style.display = 'flex';
 }
 
 const playGame = (colorsAmount) => {
 	title.remove();
-	status.style.display = 'block';
+	levelDisplay.style.display = 'block';
 	createColors(colorsAmount);
-	playLevel(level);
+	playLevel();
 }
 
-const playLevel = (level) => {
+const playLevel = () => {
 	colorblock.classList.add('unclickable');
 	sequence = [];
+  // Shows the target level for player to win
+	targetLevel.innerText = 'Target Level: ' + target;
 	// As a player, I would like to know what is the highest level I ever at
-	topLevel.innerText = 'Top Level: ' + best;
+	bestLevel.innerText = 'Best Record: Level' + best;
 	// As a player, I would like to know which level I'm at
-	currentLevel.innerText = 'Current Level: ' + level;
+	currentLevel.innerText = 'Level ' + level;
 	createSequence(level);
 	showSequence();
 	playerTurn();
 }
 
 const goNextLevel = () => {
-	if (level < targetLevel) {
+	if (level < target) {
 		alert('You completed level ' + level + '. Go to next Level!');
 		level++;    
-		playLevel(level);
+		playLevel();
 	} else {
 		// As a player, I would like to know that I win the game if I complete level 10.
 		playerWin();
@@ -193,17 +197,14 @@ const restartGame = () => {
 		}
 		level = 1;
 		setTimeout(() => {
-				playLevel(level);
+				playLevel();
 		}, 2000);
 	}
 }
 
-// MVP Goals
-
 // Issues:
 // [Violation] 'click' handler
 // Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
-
 
 // Stretch Goals
 // As a player, I would like a pop-up screen to show which level I'm at before the level starts

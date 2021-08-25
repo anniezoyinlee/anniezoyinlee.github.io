@@ -11,7 +11,7 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-/* children: .start .difficulity .status and .colorblock */
+/* children: .start .difficulity .levelDisplay and .colorblock */
 .main {
     margin: auto;
     width: 65%;
@@ -28,7 +28,7 @@
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
 
-.status {
+.levelDisplay {
     display: none;
     width: 75%;
     margin: auto;
@@ -138,9 +138,21 @@ button#hard:hover {
     pointer-Events: none;
 }
 
-/* children: .restart */
+/* children: .status .restart */
 .sidebar {
     width: 30%;
+    display: none;
+    flex-direction: column;
+}
+
+.status {
+    width: 75%;
+    margin: auto;
+    padding: 1%;
+    font-size: 1.8vw;
+    letter-spacing: 0.2em;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .restart button {
@@ -149,10 +161,10 @@ button#hard:hover {
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 4vw;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    display: none;
+    display: block;
     background-color: rgb(137, 222, 255);
 }
 
@@ -177,7 +189,7 @@ button#hard:hover {
         width: 90%
     }
 
-    .status {
+    .levelDisplay {
         font-size: 4vw;
     }
 }
@@ -190,5 +202,9 @@ button#hard:hover {
 
     .main {
         width: 90%;
+    }
+
+    .sidebar {
+        flex-direction: row;
     }
 }
