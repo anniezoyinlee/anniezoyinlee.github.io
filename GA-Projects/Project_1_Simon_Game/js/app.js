@@ -146,7 +146,7 @@ const playLevel = () => {
   // Shows the target level for player to win
 	targetLevel.innerText = 'Finish Level ' + target + ' to win!';
 	// As a player, I would like to know what is the highest level I ever at
-	bestLevel.innerText = 'Best Record: Level' + best;
+	bestLevel.innerText = 'Best Record: Level ' + best;
 	// As a player, I would like to know which level I'm at
 	currentLevel.innerText = 'Current Level: ' + level;
 	createSequence(level);
