@@ -2,6 +2,7 @@ let colors = [];
 let sequence = [];
 let level = 1;
 let best = 1;
+let targetLevel;
 const sidebar = document.querySelector('.sidebar');
 const difficulity = document.querySelector('.difficulity');
 const hard = document.getElementById('hard');
@@ -105,16 +106,24 @@ start.onclick = (ev) => {
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
 hard.onclick = (ev) => {
 	playGame(9);
+	targetLevel = 10;
+
+	// remove difficulity buttons
 	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
+
 	// create a restart button
 	restart.style.display = 'block';
 }
 
 easy.onclick = (ev) => {
 	playGame(4);
+	targetLevel = 5;
+	
+	// remove difficulity buttons
 	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
+
 	// create a restart button
 	restart.style.display = 'block';
 }
@@ -137,7 +146,7 @@ const playLevel = (level) => {
 }
 
 const goNextLevel = () => {
-	if (level < 3) {
+	if (level < targetLevel) {
 		alert('You completed level ' + level + '. Go to next Level!');
 		level++;    
 		playLevel(level);
