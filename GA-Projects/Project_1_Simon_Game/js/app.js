@@ -212,13 +212,16 @@ restart.onclick = () => {
 
 // During the game player can change difficulty, level records will reset
 changeDifficulity.onclick = () => {
-	// remove color blocks
-	const blocks = document.querySelectorAll('.color')
-	for (item of blocks) {
-		item.remove();
-	}
-
+	// reset level records
+	level = 1;
+	best = 0;
+	sequence = [];
 	colors = [];
+
+	const blocks = document.querySelectorAll('.color') 
+	for (blockDiv of blocks) {
+		blockDiv.remove();
+	}
 
 	sidebar.style.display = 'none';
 	colorblock.style.display = 'none';
@@ -231,10 +234,6 @@ changeDifficulity.onclick = () => {
 	title.style.margin = '0';
 	main.append(title);
 	main.append(difficulity);
-	
-	// reset level records
-	level = 1;
-	best = 0;
 }
 
 // As a player, I would like to be able to restart the game after I lose.
