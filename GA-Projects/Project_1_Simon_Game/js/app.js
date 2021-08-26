@@ -53,19 +53,22 @@ const createSequence = (level) => {
 	}
 }   
 
+// show sequence by making blocks change style(opacity and border), then change back
 const showSequence = () => {
 	colorblock.style.border = 'red 2px dashed';
 	for (i = 0; i < sequence.length; i++) {
 		const block = sequence[i];
-		// color block opacity changes to 1
+		// blocks start changing one by one after the function is called
 		setTimeout(() => {
 				block.classList.toggle('clicked');
 		}, 1500 + (i * 2000));
-		// color block opacity changes back to 0.4
+
+		// blocks change back one by one after style changed
 		setTimeout(() => {
 				block.classList.toggle('clicked');
 		}, 2000 + (i * 2000));
 
+		// make it user's turn after the last block change back
 		setTimeout(() => {
 				colorblock.classList.remove('unclickable');
 				colorblock.style.border = 'gold 2px dashed';
@@ -79,9 +82,13 @@ const playerTurn = () => {
 		colors[i].onclick = (ev) => {
 			if (ev.currentTarget === sequence[0]) {
 				sequence.shift();
+				// change block's style after click
 				ev.currentTarget.classList.toggle('clicked');
+
+				// only allow player to click the next block after the clicked block change back to unclick style
 				const playerClicked = document.querySelector('.clicked');
 				colorblock.classList.add('unclickable');
+				// change back block's style
 				setTimeout(() => {
 					playerClicked.classList.toggle('clicked');
 				}, 500);
@@ -112,8 +119,10 @@ start.onclick = (ev) => {
 
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
 easy.onclick = () => {
+	// 5 levels
 	target = 5;
-	playGame(4);
+	// 4 color blocks
+	playGame(4); 
 
 	// remove difficulity buttons
 	difficulity.style.display = 'none';
@@ -123,7 +132,9 @@ easy.onclick = () => {
 }
 
 hard.onclick = () => {
+	// 10 levels
 	target = 10;
+	// 9 color blocks
 	playGame(9);
 
 	// remove difficulity buttons
@@ -198,6 +209,8 @@ changeDifficulity.onclick = () => {
 		sidebar.style.display = 'none';
 		colorblock.style.display = 'none';
 		levelDisplay.style.display = 'none';
+
+		// show the buttons for player to choose difficulity from easy or hard
 		difficulity.style.display = 'flex';
 		
 		title.style.fontSize = '4vw';
