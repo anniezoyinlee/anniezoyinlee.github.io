@@ -210,6 +210,8 @@ const playerWin = () => {
 }
 
 restart.onclick = () => {
+	restart.classList.add('unclickable');
+	changeDifficulity.classList.add('unclickable');
 	const blocks = document.querySelectorAll('.color');
 	for (block of blocks) {
 		block.style.border = 'dashed 3px white';
@@ -217,6 +219,7 @@ restart.onclick = () => {
 	
 	colorblock.style.display = 'none';
 	status.innerText = 'Loading...';
+
 	setTimeout(() => {
 		status.innerText = '';
 		colorblock.style.display = 'flex';
@@ -261,24 +264,24 @@ const restartGame = () => {
 	level = 1;
 	setTimeout(() => {
 			playLevel();
+			restart.classList.remove('unclickable');
+			changeDifficulity.classList.remove('unclickable');
 	}, 2000);
 }
 
 // Issues:
 // [Violation] 'click' handler
 // Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
-
-// gameover button
+// In smaller screens click color blocks effect has delay
 
 // Bonus:
-
 // Add timer-based scoring
 // Track scores across games (even if the page is reloaded) -> local storage?
-
 
 // Stretch Goals
 // As a player, I would like to hear different sounds while the app showing the sequence of different colors
 // As a player, I would like to see a rank with other players name and their highest level -> local storage/database?
 
-// Added on
+// Future Goal
 // Make more difficulity options
+// dry the code?

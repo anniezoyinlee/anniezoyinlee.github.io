@@ -1,4 +1,10 @@
 # General Assembly - Project 1
+
+## Colorful Simon
+[link to the Game](https://anniezoyinlee.github.io/GA-Projects/Project_1_Simon_Game/index.html)
+
+## Colorful Simon
+
 ## Project Choice
 >  Simon Game
 
