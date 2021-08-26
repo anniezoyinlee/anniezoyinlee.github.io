@@ -150,6 +150,7 @@ button#hard:hover {
 .status {
     width: 100%;
     padding: 1%;
+    text-align: center;
     font-size: 1.8vw;
     letter-spacing: 0.25em;
     color: white;
@@ -165,7 +166,7 @@ button#hard:hover {
 
 .restart button {
     margin: 5% auto;
-    padding: 1vw 5vw;
+    padding: 1vw 5.5vw;
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
@@ -182,7 +183,7 @@ button#hard:hover {
 
 .switchDifficulity button {
     margin: 5% auto;
-    padding: .5vw; 
+    padding: 1vw; 
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
@@ -234,6 +235,12 @@ button#hard:hover {
         margin-left: 10%;
     }
 
+    .levelDisplay {
+        font-size: 2.5vw;
+        letter-spacing: 0.3em;
+        text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
+    }
+
     .sidebar {
         flex-direction: row;
         align-items: center;
@@ -243,6 +250,8 @@ button#hard:hover {
     .status {
         width: 50%;
         font-size: 2.5vw;
+        letter-spacing: 0.3em;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     .buttons {

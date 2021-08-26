@@ -205,6 +205,11 @@ const restartGame = () => {
 // Issues:
 // [Violation] 'click' handler
 // Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
+// add function to change level button
+// change alerts to something
+// restart the game === 'no' go gameover
+// gameover function
+
 
 // Stretch Goals
 // As a player, I would like a pop-up screen to show which level I'm at before the level starts
