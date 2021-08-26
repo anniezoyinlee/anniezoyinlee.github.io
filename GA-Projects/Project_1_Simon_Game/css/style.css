@@ -144,7 +144,6 @@ button#hard:hover {
 
 /* children: .levelDisplay .restart */
 .sidebar {
-    /* border: gold 1px solid; */
     width: 38%;
     min-height: 600px;
     margin: auto;
@@ -227,45 +226,51 @@ button#hard:hover {
 
 @media only screen and (max-width: 768px) {
     .container {
-        flex-direction: column;
         width: 100%;
+        flex-flow: column nowrap;
     }
 
     .main {
         width: 90%;
-        height: 500px;
+        height: 100%;
     }
 
     .title {
         font-size: 6vw;
-        margin-left: 10%;
-    }
-
-    .levelDisplay {
-        font-size: 2.5vw;
-        letter-spacing: 0.3em;
     }
 
     .sidebar {
-        flex-flow: row wrap;
-        align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         width: 80%;
-        margin-top: 20%;
+        height: 100%;
+        margin: 0 auto;
     }
 
+    .sidebar.title {
+        text-shadow: -1.5px 0 hotpink, 0 1.5px hotpink, 1.5px 0 hotpink, 0 -1.5px hotpink;
+        margin: 0 auto;
+    }
+
+    .levelDisplay {
+        font-size: 4vw;
+        letter-spacing: 0.3em;
+        text-shadow: -1px 0 coral, 0 1px coral, 1px 0 coral, 0 -1px coral;
+    }
+
+
     .statusDisplay {
-        width: 50%;
-        font-size: 2.5vw;
+        width: 100%;
+        font-size: 4vw;
         letter-spacing: 0.3em;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        margin: 0 auto;
     }
 
     .buttons {
-        flex-direction: row;
-        margin-top: -45%;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
+        flex-direction: row; 
     }
 
     .restart { 
@@ -277,10 +282,17 @@ button#hard:hover {
         margin: 5% auto;
         padding: 5% 10%;
         font-size: 3vw;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    .switchDifficulity { 
+        width: 50%;
+        margin: 0;
     }
 
     .switchDifficulity button {
         padding: 2vw; 
-        margin: 0;
+        margin: 5%;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 }
