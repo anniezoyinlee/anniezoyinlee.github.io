@@ -15,6 +15,7 @@
 .main {
     margin: auto;
     width: 60%;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -23,9 +24,12 @@
 .title {
     letter-spacing: 0.5em;
     font-size: 4vw;
-    margin: auto;
     color: white;
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
+}
+
+.title h1 {
+    margin: 10% auto;
 }
 
 .start button {
@@ -84,12 +88,12 @@ button#hard:hover {
 .levelDisplay {
     display: none;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     padding: 1%;
     font-size: 2.5vw;
     letter-spacing: 0.2em;
     color: white;
-    text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
+    text-shadow: -2px 0 coral, 0 2px coral, 2px 0 coral, 0 -2px coral;
 }
 
 /* children: .color */
@@ -142,6 +146,7 @@ button#hard:hover {
 .sidebar {
     border: gold 1px solid;
     width: 38%;
+    min-height: 600px;
     margin: auto;
     display: none;
     flex-direction: column;
@@ -159,7 +164,7 @@ button#hard:hover {
 
 .buttons {
     width: 70%;
-    margin: auto;
+    margin: 15% auto;
     display: flex;
     flex-direction: column;
 }
@@ -238,7 +243,6 @@ button#hard:hover {
     .levelDisplay {
         font-size: 2.5vw;
         letter-spacing: 0.3em;
-        text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
     }
 
     .sidebar {
@@ -256,7 +260,6 @@ button#hard:hover {
 
     .buttons {
         flex-direction: row;
-        align-items: center;
         justify-content: center;
     }
 

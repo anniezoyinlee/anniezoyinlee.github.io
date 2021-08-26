@@ -1,8 +1,10 @@
 let colors = [];
 let sequence = [];
 let level = 1;
-let best = 1;
+let best = 0; 
 let target;
+const container = document.querySelector('.container');
+const main = document.querySelector('.main');
 const sidebar = document.querySelector('.sidebar');
 const difficulity = document.querySelector('.difficulity');
 const title = document.querySelector('.title');
@@ -12,6 +14,7 @@ const hard = document.getElementById('hard');
 const easy = document.getElementById('easy');
 const start = document.getElementById('startBtn');
 const restart = document.getElementById('restartBtn');
+const changeDifficulity = document.getElementById('changeDifficulity');
 const colorblock = document.querySelector('.colorblock');
 const targetLevel = document.getElementById('targetLevel');
 const bestLevel = document.getElementById('bestLevel');
@@ -109,24 +112,22 @@ start.onclick = (ev) => {
 }
 
 // As a player, I would like to decide the difficulty of the game(more color blocks or more levels)
-easy.onclick = (ev) => {
+easy.onclick = () => {
 	target = 5;
 	playGame(4);
 
 	// remove difficulity buttons
-	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
 
 	// show status and restart button
 	sidebar.style.display = 'flex';
 }
 
-hard.onclick = (ev) => {
+hard.onclick = () => {
 	target = 10;
 	playGame(9);
 
 	// remove difficulity buttons
-	ev.currentTarget.remove();
 	difficulity.style.display = 'none';
 
 	// show status and restart button
@@ -134,7 +135,10 @@ hard.onclick = (ev) => {
 }
 
 const playGame = (colorsAmount) => {
-	title.remove();
+	colorblock.style.display = 'flex';
+	title.style.fontSize = '1.5vw';
+	title.style.margin = '0 0 0 10%';
+	sidebar.insertBefore(title, status);
 	levelDisplay.style.display = 'block';
 	createColors(colorsAmount);
 	playLevel();
@@ -186,6 +190,27 @@ restart.onclick = () => {
 	restartGame();
 }
 
+changeDifficulity.onclick = () => {
+	for (item of colors) {
+			item.style.backgroundColor = getRGB();
+			item.remove();
+		}
+
+		sidebar.style.display = 'none';
+		colorblock.style.display = 'none';
+		levelDisplay.style.display = 'none';
+		difficulity.style.display = 'flex';
+		
+		title.style.fontSize = '4vw';
+		title.style.margin = '0';
+		main.append(title);
+		main.append(difficulity);
+		
+
+		level = 1;
+		best = 0;
+}
+
 // As a player, I would like to be able to restart the game after I lose.
 const restartGame = () => {
 	colorblock.classList.add('unclickable');
@@ -195,6 +220,7 @@ const restartGame = () => {
 		for (item of colors) {
 			item.style.backgroundColor = getRGB();
 		}
+		
 		level = 1;
 		setTimeout(() => {
 				playLevel();
@@ -209,6 +235,11 @@ const restartGame = () => {
 // change alerts to something
 // restart the game === 'no' go gameover
 // gameover function
+
+// Bonus:
+
+// Add timer-based scoring
+// Track scores across games (even if the page is reloaded) -> local storage?
 
 
 // Stretch Goals
