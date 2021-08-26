@@ -30,7 +30,7 @@
 
 .start button {
     display: block;
-    margin: 5% auto;
+    margin: 0 auto;
     padding: 4% 10%;
     border-radius: 40px;
     background-color: rgb(255, 255, 100);
@@ -55,7 +55,7 @@
 }
 
 .difficulity button {
-    margin: 5%;
+    margin: 0 5%;
     padding: 5% 10%;
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
@@ -83,10 +83,10 @@ button#hard:hover {
 
 .levelDisplay {
     display: none;
-    width: 75%;
+    width: 80%;
     margin: auto;
     padding: 1%;
-    font-size: 3vw;
+    font-size: 2.5vw;
     letter-spacing: 0.2em;
     color: white;
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
@@ -141,7 +141,7 @@ button#hard:hover {
 /* children: .levelDisplay .restart */
 .sidebar {
     border: gold 1px solid;
-    width: 35%;
+    width: 38%;
     margin: auto;
     display: none;
     flex-direction: column;
@@ -156,20 +156,44 @@ button#hard:hover {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+.buttons {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .restart button {
     margin: 5% auto;
-    padding: 10% 10%;
+    padding: 1vw 5vw;
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
-    font-size: 4vw;
+    font-size: 2vw;
     letter-spacing: 0.1em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     display: block;
-    background-color: rgb(137, 222, 255);
+    background-color: rgb(200, 190, 240);
 }
 
 .restart button:hover {
+    border: green 4px dotted;
+}
+
+.switchDifficulity button {
+    margin: 5% auto;
+    padding: .5vw; 
+    border-radius: 20px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2vw;
+    letter-spacing: 0.1em;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    display: block;
+    background-color: rgb(140, 170, 250);
+}
+
+.switchDifficulity button:hover {
     border: green 4px dotted;
 }
 
@@ -221,6 +245,12 @@ button#hard:hover {
         font-size: 2.5vw;
     }
 
+    .buttons {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
     .restart { 
         width: 50%;
     }
@@ -229,5 +259,9 @@ button#hard:hover {
         margin: 5% auto;
         padding: 5% 10%;
         font-size: 3vw;
+    }
+
+    .switchDifficulity button {
+        padding: 2vw; 
     }
 }
