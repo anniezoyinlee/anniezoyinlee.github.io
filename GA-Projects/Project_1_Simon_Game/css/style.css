@@ -246,17 +246,16 @@ button#hard:hover {
         margin: 0 auto;
     }
 
-    .sidebar.title {
-        text-shadow: -1.5px 0 hotpink, 0 1.5px hotpink, 1.5px 0 hotpink, 0 -1.5px hotpink;
-        margin: 0 auto;
+    .sidebar .title h1 {
+        text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
+        margin: 1% 0 5% -5%;
     }
 
     .levelDisplay {
         font-size: 4vw;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.35em;
         text-shadow: -1px 0 coral, 0 1px coral, 1px 0 coral, 0 -1px coral;
     }
-
 
     .statusDisplay {
         width: 100%;
