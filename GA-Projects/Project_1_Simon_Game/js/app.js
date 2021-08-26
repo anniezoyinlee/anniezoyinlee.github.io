@@ -3,7 +3,6 @@ let sequence = [];
 let level = 1;
 let best = 0; 
 let target;
-const container = document.querySelector('.container');
 const main = document.querySelector('.main');
 const sidebar = document.querySelector('.sidebar');
 const difficulity = document.querySelector('.difficulity');
@@ -190,9 +189,9 @@ restart.onclick = () => {
 	restartGame();
 }
 
+// During the game player can change difficulty, level records will reset
 changeDifficulity.onclick = () => {
 	for (item of colors) {
-			item.style.backgroundColor = getRGB();
 			item.remove();
 		}
 
@@ -206,7 +205,7 @@ changeDifficulity.onclick = () => {
 		main.append(title);
 		main.append(difficulity);
 		
-
+		// reset level records
 		level = 1;
 		best = 0;
 }
@@ -231,7 +230,6 @@ const restartGame = () => {
 // Issues:
 // [Violation] 'click' handler
 // Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
-// add function to change level button
 // change alerts to something
 // restart the game === 'no' go gameover
 // gameover function

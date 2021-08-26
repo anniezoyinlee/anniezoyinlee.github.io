@@ -29,7 +29,7 @@
 }
 
 .title h1 {
-    margin: 10% auto;
+    margin: 0 auto 10% auto;
 }
 
 .start button {
@@ -144,7 +144,7 @@ button#hard:hover {
 
 /* children: .levelDisplay .restart */
 .sidebar {
-    border: gold 1px solid;
+    /* border: gold 1px solid; */
     width: 38%;
     min-height: 600px;
     margin: auto;
@@ -227,12 +227,13 @@ button#hard:hover {
 
 @media only screen and (max-width: 768px) {
     .container {
-        flex-flow: column wrap;
+        flex-direction: column;
         width: 100%;
     }
 
     .main {
         width: 90%;
+        height: 500px;
     }
 
     .title {
@@ -246,9 +247,11 @@ button#hard:hover {
     }
 
     .sidebar {
-        flex-direction: row;
-        align-items: center;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
         width: 80%;
+        margin-top: 20%;
     }
 
     .status {
@@ -260,11 +263,14 @@ button#hard:hover {
 
     .buttons {
         flex-direction: row;
+        margin-top: -45%;
         justify-content: center;
+        align-items: center;
     }
 
     .restart { 
         width: 50%;
+        margin: 0;
     }
 
     .restart button {
@@ -275,5 +281,6 @@ button#hard:hover {
 
     .switchDifficulity button {
         padding: 2vw; 
+        margin: 0;
     }
 }
