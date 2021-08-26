@@ -25,6 +25,7 @@ const createColors = (amount) => {
 	for (i = 1; i <= amount; i++) {
 		div = document.createElement('div');
 		div.setAttribute('class', 'color');
+		div.setAttribute('id', 'block' + i)
 		div.style.backgroundColor = getRGB();
 		// for difficulity -> hard
 		if (amount >= 9) {
@@ -155,6 +156,9 @@ const playGame = (colorsAmount) => {
 }
 
 const playLevel = () => {
+	console.log('playLevel')
+	console.log(colors)
+	console.log(sequence)
 	colorblock.classList.add('unclickable');
 	sequence = [];
   // Shows the target level for player to win
@@ -202,41 +206,44 @@ restart.onclick = () => {
 
 // During the game player can change difficulty, level records will reset
 changeDifficulity.onclick = () => {
-	for (item of colors) {
-			item.remove();
-		}
+	// remove color blocks
+	const blocks = document.querySelectorAll('.color')
+	for (item of blocks) {
+		item.remove();
+	}
 
-		sidebar.style.display = 'none';
-		colorblock.style.display = 'none';
-		levelDisplay.style.display = 'none';
+	sidebar.style.display = 'none';
+	// colorblock.style.display = 'none';
+	levelDisplay.style.display = 'none';
 
-		// show the buttons for player to choose difficulity from easy or hard
-		difficulity.style.display = 'flex';
-		
-		title.style.fontSize = '4vw';
-		title.style.margin = '0';
-		main.append(title);
-		main.append(difficulity);
-		
-		// reset level records
-		level = 1;
-		best = 0;
+	// show the buttons for player to choose difficulity from easy or hard
+	difficulity.style.display = 'flex';
+	
+	title.style.fontSize = '4vw';
+	title.style.margin = '0';
+	main.append(title);
+	main.append(difficulity);
+	
+	// reset level records
+	level = 1;
+	best = 0;
 }
 
 // As a player, I would like to be able to restart the game after I lose.
 const restartGame = () => {
 	colorblock.classList.add('unclickable');
 
-	const restart = prompt('Do you want to restart the game?', 'yes/no');
-	if (restart === 'yes') {
+	// const restart = prompt('Do you want to restart the game?', 'yes/no');
+	// if (restart === 'yes') {
 		for (item of colors) {
 			item.style.backgroundColor = getRGB();
-		}
+			item.classList = 'color';
+		// }
 		
 		level = 1;
 		setTimeout(() => {
 				playLevel();
-		}, 2000);
+		}, 5000);
 	}
 }
 
