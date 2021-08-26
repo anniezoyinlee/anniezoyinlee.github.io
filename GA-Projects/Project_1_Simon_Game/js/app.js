@@ -105,7 +105,13 @@ const playerTurn = () => {
 				}
 			} else {
 					// As a player, I would like to see the color block turn grey if I miss the repeat.
+					const blocks = document.querySelectorAll('.color');
+					for (block of blocks) {
+						block.style.border = 'solid 3px white';
+					}
 					ev.currentTarget.style.backgroundColor = 'grey';
+					ev.currentTarget.style.border = '3px black solid';
+					sequence[0].style.border = '3px red solid';
 					playerLose();
 			}
 		}
@@ -186,6 +192,8 @@ const goNextLevel = () => {
 }
 
 const playerLose = () => {
+	colorblock.classList.add('unclickable');
+
 	// As a player, I would like to see a message showing that I lose.
 	status.innerText = 'Oops! You Missed it! Click RESTART to play again';
 	if (best <= level && level > 1) {
@@ -194,6 +202,7 @@ const playerLose = () => {
 }
 
 const playerWin = () => {
+	colorblock.classList.add('unclickable');
 	status.innerText = 'YOU WIN! Click RESTART to play again'
 	if (best <= level) {
 			best = level;
@@ -201,6 +210,11 @@ const playerWin = () => {
 }
 
 restart.onclick = () => {
+	const blocks = document.querySelectorAll('.color');
+	for (block of blocks) {
+		block.style.border = 'dashed 3px white';
+	}
+	
 	colorblock.style.display = 'none';
 	status.innerText = 'Loading...';
 	setTimeout(() => {

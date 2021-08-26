@@ -108,7 +108,7 @@ button#hard:hover {
 .color {
     width: 45%;
     margin: 1%;
-    border: dashed 3px rgb(255, 255, 255);
+    border: dashed 3px white;
     opacity: .4;
     border-radius: 5%;
 }
