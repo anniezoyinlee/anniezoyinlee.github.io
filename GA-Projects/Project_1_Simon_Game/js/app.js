@@ -156,9 +156,6 @@ const playGame = (colorsAmount) => {
 }
 
 const playLevel = () => {
-	console.log('playLevel')
-	console.log(colors)
-	console.log(sequence)
 	colorblock.classList.add('unclickable');
 	sequence = [];
   // Shows the target level for player to win
@@ -174,9 +171,14 @@ const playLevel = () => {
 
 const goNextLevel = () => {
 	if (level < target) {
-		alert('You completed level ' + level + '. Go to next Level!');
+		// Shows good word if player complete a level
+		const goodWords = ['Good Job! ', 'Fantastic! ', 'Wonderful! ', 'Awesome! ', 'Nice! ']
+		targetLevel.innerText = goodWords[Math.floor(Math.random() * (goodWords.length - 1))] + 'Go to level ' + (level + 1);
+
 		level++;    
-		playLevel();
+		setTimeout(() => {
+			playLevel();
+		}, 2000);
 	} else {
 		// As a player, I would like to know that I win the game if I complete level 10.
 		playerWin();
@@ -185,23 +187,27 @@ const goNextLevel = () => {
 
 const playerLose = () => {
 	// As a player, I would like to see a message showing that I lose.
-	alert('You missed it');
+	targetLevel.innerText = 'YOU MISSED IT. YOU LOSE! Click RESTART to play again!';
 	if (best <= level && level > 1) {
 			best = level - 1;
 	}
-	restartGame();
 }
 
 const playerWin = () => {
-	alert('You win');
+	targetLevel.innerText = 'YOU WIN! Click RESTART to play again!'
 	if (best <= level) {
 			best = level;
 	}
-	restartGame();
 }
 
 restart.onclick = () => {
-	restartGame();
+	colorblock.style.display = 'none';
+	targetLevel.innerText = 'Loading...';
+	setTimeout(() => {
+		targetLevel.innerText = '';
+		colorblock.style.display = 'flex';
+		restartGame();
+}, 600 + (sequence.length * 2000));
 }
 
 // During the game player can change difficulty, level records will reset
@@ -212,8 +218,10 @@ changeDifficulity.onclick = () => {
 		item.remove();
 	}
 
+	colors = [];
+
 	sidebar.style.display = 'none';
-	// colorblock.style.display = 'none';
+	colorblock.style.display = 'none';
 	levelDisplay.style.display = 'none';
 
 	// show the buttons for player to choose difficulity from easy or hard
@@ -235,16 +243,16 @@ const restartGame = () => {
 
 	// const restart = prompt('Do you want to restart the game?', 'yes/no');
 	// if (restart === 'yes') {
-		for (item of colors) {
-			item.style.backgroundColor = getRGB();
-			item.classList = 'color';
-		// }
 		
-		level = 1;
-		setTimeout(() => {
-				playLevel();
-		}, 5000);
+	// }
+	for (item of colors) {
+		item.style.backgroundColor = getRGB();
 	}
+	
+	level = 1;
+	setTimeout(() => {
+			playLevel();
+	}, 2000);
 }
 
 // Issues:
