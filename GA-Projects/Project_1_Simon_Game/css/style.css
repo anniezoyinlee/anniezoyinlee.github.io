@@ -11,7 +11,7 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-/* children: .start .difficulity .status and .colorblock */
+/* children: .start .difficulity .statusDisplay and .colorblock */
 .main {
     margin: auto;
     width: 60%;
@@ -152,7 +152,7 @@ button#hard:hover {
     flex-direction: column;
 }
 
-.status {
+.statusDisplay {
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -254,7 +254,7 @@ button#hard:hover {
         margin-top: 20%;
     }
 
-    .status {
+    .statusDisplay {
         width: 50%;
         font-size: 2.5vw;
         letter-spacing: 0.3em;
