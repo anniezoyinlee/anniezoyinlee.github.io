@@ -9,7 +9,7 @@
 * Blocks change colors in every level
 * Player can choose difficulties
 * Sequence changes in each level, not repeats and adds on from the previous level
-* The game would congrate the player with different words when a level is completed
+* The game would congrats the player with different words when a level is completed
 
 ### Unfixed Issues
 * In smaller screens after player clicks on color blocks the effect to change back the color has delay.
@@ -17,28 +17,28 @@
 * Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
 
 ### Future Goal
-* Make more difficulity options, like unlimited levels
+* Make more difficulty options, like unlimited levels
 * With unlimited levels add timer-based scoring
 * Player can track scores across games (even if the page is reloaded)
-* Allow player to enter their name and show top level rank (local storage or database)
+* Allow player to enter their name and show top-level rank (local storage or database)
 * Add sound effect while a color block is clicked
 
 #### What would you do differently?
-> I would add the media query after most of my function is done next time. I've included media query right after I created files and bolierplate, I spent a lot of time to fix it during keep adding new functions.
+> I would add the media query after most of my function is done next time. I've included media query right after I created files and boilerplate, I spent a lot of time fixing it during keep adding new functions.
 
 > I would find ways to replace setTimeout function
 
 #### What are you most proud of?
-> I like the game being so colorful, and it has protential to add on more difficulity options and make unlimited levels.
+> I like the game being so colorful, and it has potential to add on more difficulty options and make unlimited levels.
 
 #### What would you do next?
-> I will make more difficulity options and make a ranking chart.
+> I will make more difficulty options and make a ranking chart.
 
 #### How did you plan your project?
-> I copy and paste all the MVP goal in my js file, then organize the sequence. When I came up ideas before finishing MVP goals, I comment out the idea at the bottom of the file and make it happen after I finish MVP goals 
+> I copy and paste all the MVP goals in my js file, then organize the sequence. When I came up with ideas before finishing MVP goals, I comment out the idea at the bottom of the file and make it happen after I finish MVP goals 
 
 #### What did you learn?
-> I learned to finish small part of codes each time and commit it. It really helps knowing what I'm doing in each section and I feel accomplished when I look back my commit history and find that I already done a lot.
+> I learned to finish a small part of codes each time and commit it. It really helps to know what I'm doing in each section and I feel accomplished when I look back at my committed history and find that I have already done a lot.
 
 ## Project Description
 >  My game app is called Simon. It's a game for testing memory. When the game starts the program creates a sequence of different colors at random and the user should repeat the sequence. The program should go next round if the player is successful. Once the user fails or the time limit runs out, the game is over. 
