@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* children: .main .sidebar */
 .container {
-    width: 60%;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    width: 60%;
     margin: 5% auto;
     padding: 10px; 
     font-family: 'Bebas Neue', cursive;
@@ -13,17 +14,17 @@
 
 /* children: .start .difficulity .statusDisplay and .colorblock */
 .main {
-    margin: auto;
-    width: 60%;
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: 60%;
+    height: 600px;
+    margin: auto;
 }
 
 .title {
-    letter-spacing: 0.5em;
     font-size: 4vw;
+    letter-spacing: 0.5em;
     color: white;
     text-shadow: -2px 0 hotpink, 0 2px hotpink, 2px 0 hotpink, 0 -2px hotpink;
 }
@@ -36,8 +37,8 @@
     display: block;
     margin: 0 auto;
     padding: 4% 10%;
-    border-radius: 40px;
     background-color: rgb(255, 255, 100);
+    border-radius: 40px;
     font-family: 'Bebas Neue', cursive;
     font-size: 4vw;
     letter-spacing: 0.2em;
@@ -50,12 +51,12 @@
 }
 
 .difficulity {
-    width: 100%;
-    margin: 0 auto;
     display: none;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .difficulity button {
@@ -98,18 +99,18 @@ button#hard:hover {
 
 /* children: .color */
 .colorblock {
-    width: 85%;
-    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    width: 85%;
+    margin: 0 auto;
 }
 
 .color {
     width: 45%;
     margin: 1%;
-    border: dashed 3px white;
     opacity: .4;
+    border: dashed 3px white;
     border-radius: 5%;
 }
 
@@ -127,8 +128,8 @@ button#hard:hover {
 .clicked {
     width: 45%;
     margin: 1%;
-    border: solid rgb(255, 255, 255);
     opacity: 1;
+    border: solid rgb(255, 255, 255);
     border-radius: 5%;
 }
 
@@ -144,11 +145,11 @@ button#hard:hover {
 
 /* children: .levelDisplay .restart */
 .sidebar {
+    display: none;
+    flex-direction: column;
     width: 38%;
     min-height: 600px;
     margin: auto;
-    display: none;
-    flex-direction: column;
 }
 
 .statusDisplay {
@@ -162,23 +163,23 @@ button#hard:hover {
 }
 
 .buttons {
-    width: 70%;
-    margin: 15% auto;
     display: flex;
     flex-direction: column;
+    width: 70%;
+    margin: 15% auto;
 }
 
 .restart button {
+    display: block;
     margin: 5% auto;
     padding: 1vw 5.5vw;
+    background-color: rgb(200, 190, 240);
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
     letter-spacing: 0.1em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    display: block;
-    background-color: rgb(200, 190, 240);
 }
 
 .restart button:hover {
@@ -186,16 +187,16 @@ button#hard:hover {
 }
 
 .switchDifficulity button {
+    display: block;
     margin: 5% auto;
     padding: 1vw; 
+    background-color: rgb(140, 170, 250);
     border-radius: 20px;
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
     letter-spacing: 0.1em;
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    display: block;
-    background-color: rgb(140, 170, 250);
 }
 
 .switchDifficulity button:hover {
@@ -224,6 +225,7 @@ button#hard:hover {
     }
 }
 
+/* sidebar move to below main */
 @media only screen and (max-width: 768px) {
     .container {
         width: 100%;
@@ -259,8 +261,8 @@ button#hard:hover {
     }
 
     .sidebar .title h1 {
-        text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
         margin: 1% 0 5% -5%;
+        text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
     }
 
     .levelDisplay {
@@ -271,17 +273,17 @@ button#hard:hover {
 
     .statusDisplay {
         width: 100%;
+        margin: 0 auto;
         font-size: 4vw;
         letter-spacing: 0.3em;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        margin: 0 auto;
     }
 
     .buttons {
         justify-content: center;
+        flex-direction: row; 
         align-items: center;
         margin: 0 auto;
-        flex-direction: row; 
     }
 
     .restart { 
@@ -303,9 +305,9 @@ button#hard:hover {
     }
 
     .switchDifficulity button {
-        font-size: 3vw;
-        padding: 2vw 3vw; 
         margin: 5%;
+        padding: 2vw 3vw; 
+        font-size: 3vw;
         letter-spacing: 0.2em;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
