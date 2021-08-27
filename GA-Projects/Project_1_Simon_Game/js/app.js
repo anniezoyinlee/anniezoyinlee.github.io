@@ -25,7 +25,7 @@ const createColors = (amount) => {
 	for (i = 1; i <= amount; i++) {
 		div = document.createElement('div');
 		div.setAttribute('class', 'color');
-		div.setAttribute('id', 'block' + i)
+		div.setAttribute('id', 'block' + i); 
 		div.style.backgroundColor = getRGB();
 		// for difficulity -> hard
 		if (amount >= 9) {
@@ -268,20 +268,3 @@ const restartGame = () => {
 			changeDifficulity.classList.remove('unclickable');
 	}, 2000);
 }
-
-// Issues:
-// [Violation] 'click' handler
-// Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. -> only in github
-// In smaller screens click color blocks effect has delay
-
-// Bonus:
-// Add timer-based scoring
-// Track scores across games (even if the page is reloaded) -> local storage?
-
-// Stretch Goals
-// As a player, I would like to hear different sounds while the app showing the sequence of different colors
-// As a player, I would like to see a rank with other players name and their highest level -> local storage/database?
-
-// Future Goal
-// Make more difficulity options
-// dry the code?
