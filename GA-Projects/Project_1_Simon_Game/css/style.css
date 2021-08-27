@@ -12,7 +12,7 @@
     font-family: 'Bebas Neue', cursive;
 }
 
-/* children: .start .difficulity .statusDisplay and .colorblock */
+/* children: .title .levelDisplay .difficulity .start and .colorblock */
 .main {
     display: flex;
     flex-direction: column;
@@ -143,7 +143,7 @@ button#hard:hover {
     pointer-Events: none;
 }
 
-/* children: .levelDisplay .restart */
+/* children: (.title) .statusDisplay .buttons */
 .sidebar {
     display: none;
     flex-direction: column;
@@ -162,6 +162,7 @@ button#hard:hover {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+/* children: .restart .switchDifficulity */
 .buttons {
     display: flex;
     flex-direction: column;
