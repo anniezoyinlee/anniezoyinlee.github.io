@@ -13,7 +13,7 @@ const hard = document.getElementById('hard');
 const easy = document.getElementById('easy');
 const start = document.getElementById('startBtn');
 const restart = document.getElementById('restartBtn');
-const changeDifficulity = document.getElementById('changeDifficulity');
+const changeDifficulityBtn = document.getElementById('changeDifficulityBtn');
 const colorblock = document.querySelector('.colorblock');
 const status = document.getElementById('status');
 const bestLevel = document.getElementById('bestLevel');
@@ -211,7 +211,7 @@ const playerWin = () => {
 
 restart.onclick = () => {
 	restart.classList.add('unclickable');
-	changeDifficulity.classList.add('unclickable');
+	changeDifficulityBtn.classList.add('unclickable');
 	const blocks = document.querySelectorAll('.color');
 	for (block of blocks) {
 		block.style.border = 'dashed 3px white';
@@ -228,7 +228,7 @@ restart.onclick = () => {
 }
 
 // During the game player can change difficulty, level records will reset
-changeDifficulity.onclick = () => {
+changeDifficulityBtn.onclick = () => {
 	// reset level records
 	level = 1;
 	best = 0;
@@ -265,6 +265,6 @@ const restartGame = () => {
 	setTimeout(() => {
 			playLevel();
 			restart.classList.remove('unclickable');
-			changeDifficulity.classList.remove('unclickable');
+			changeDifficulityBtn.classList.remove('unclickable');
 	}, 2000);
 }
